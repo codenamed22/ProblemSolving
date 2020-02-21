@@ -15,17 +15,21 @@ public class Solution {
     // Complete the matrixRotation function below.
     static void matrixRotation(List<List<Integer>> matrix, int r) 
     {
+        int length = matrix.size();
+        int width = matrix.get(0).size();
 
-        while(r!=0)
+        int maxRow = matrix.size()-1;
+        int maxCol = matrix.get(0).size()-1;
+        int row =0;
+        int col =0;
+        int prev =0;
+        int curr =0;
+        int rC = 0;  
+        while(row<= maxRow && col<= maxCol)
         {
-            int maxRow = matrix.size()-1;
-            int maxCol = matrix.get(0).size()-1;
-            int row =0;
-            int col =0;
-            int prev =0;
-            int curr =0;
-
-            while(row<= maxRow && col<= maxCol)
+            rC = r%(((length-(2*row))*2)+((width-(2*col)-2)*2));
+            //System.out.println(rC);
+            while(rC!=0)
             {
                 prev = matrix.get(row+1).get(maxCol);
 
@@ -56,18 +60,13 @@ public class Solution {
                     matrix.get(i).set(maxCol, prev); // a[i, maxCol] = prev;
                     prev = curr;
                 }
-                row++;
-                col++;
-                maxCol--;
-                maxRow--;
+                rC--;
             }
-
-            r--;
+            row++;
+            col++;
+            maxCol--;
+            maxRow--;
         }
-
-
-        int length = matrix.size();
-        int width = matrix.get(0).size();
 
         for(int i=0; i<length; i++)
         {
