@@ -31,6 +31,7 @@ class Solution:
     def validPalindrome(self, s: str) -> bool:
         #bascically remove each character and check if we have a palindrome
         #define left and right pointers to start from both edges
+        #if mismatch
         #remove left and check for palindrome
         #remove right and check for palindrome
         #move left and right and redo the checks
