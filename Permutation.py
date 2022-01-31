@@ -52,7 +52,7 @@ class Solution:
             if i > len(s1)-1:
                 ls2[ord(s2[i-len(s1)]) - 97]-=1
             
-            if ls1 == ls2:
+            if i >= len(s1)-1 and ls1 == ls2:
                 return True
             
         return False
